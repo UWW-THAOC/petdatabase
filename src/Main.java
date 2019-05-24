@@ -21,16 +21,37 @@ public class Main {
                     addPet();
                     break;
                 case 3:
+                    searchByName();
+                    break;
+                case 4:
                     break loop;
             }
         }
+    }
+    
+    private static void searchByName() {
+        System.out.print("Enter a name to search:");
+        String name = s.next();
+        int match = 0;
+        printTableHeader();
+        ArrayList<Pet> pets = db.getPets();
+        
+        for (int i = 0; i < pets.size(); i++) {
+            if (pets.get(i).getName().equalsIgnoreCase(name)) {
+                printTableRow(i, pets.get(i).getName(), pets.get(i).getAge());
+                match++;
+            }
+        }
+        printTableFooter(match);
+        
     }
     
     public static int getUserChoice() {
         System.out.println("What would you like to do?");
         System.out.println(" 1) View all pets");
         System.out.println(" 2) Add a new pet");
-        System.out.println(" 3) Exit program ");
+        System.out.println(" 3) Search pets by name ");
+        System.out.println(" 4) Exit program ");
         System.out.print("Your choice: ");
         return s.nextInt();
     }
