@@ -27,6 +27,9 @@ public class Main {
                     searchByAge();
                     break;
                 case 5:
+                    removePet();
+                    break;
+                case 6:
                     break loop;
             }
         }
@@ -72,9 +75,17 @@ public class Main {
         System.out.println(" 2) Add a new pet");
         System.out.println(" 3) Search pets by name ");
         System.out.println(" 4) Search pets by age ");
-        System.out.println(" 5) Exit program ");
+        System.out.println(" 5) Remove pet ");
+        System.out.println(" 6) Exit program ");
         System.out.print("Your choice: ");
         return s.nextInt();
+    }
+
+    public static void removePet() {
+        showAllPets();
+        System.out.print("Enter the pet ID to remove: ");
+        int id = s.nextInt();
+        db.remove(id);
     }
 
 

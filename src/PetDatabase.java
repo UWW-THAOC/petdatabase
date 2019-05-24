@@ -18,4 +18,8 @@ public class PetDatabase {
     public int getCount(){
         return pets.size();
     }
+    
+    public void remove(int id){
+        pets.remove(id);
+    }
 }
