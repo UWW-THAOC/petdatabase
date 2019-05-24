@@ -30,10 +30,30 @@ public class Main {
                     removePet();
                     break;
                 case 6:
+                    updatePet();
+                    break;
+                case 7:
                     break loop;
             }
         }
     }
+    
+    private static void updatePet() {
+        showAllPets();
+        System.out.print("Enter the pet ID you can to update:");
+        int id = s.nextInt();
+        System.out.print("Enter new name and new age:");
+
+        Pet pet = db.getPets().get(id);
+        String oldName = pet.getName();
+        int oldAge = pet.getAge();
+        String newName = s.next();
+        int newAge = s.nextInt();
+        pet.setName(newName);
+        pet.setAge(newAge);
+        System.out.println(oldName + " " + oldAge + " changed to " + newName + " " + newAge + ".");
+    }
+
     
     private static void searchByName() {
         System.out.print("Enter a name to search:");
@@ -76,7 +96,8 @@ public class Main {
         System.out.println(" 3) Search pets by name ");
         System.out.println(" 4) Search pets by age ");
         System.out.println(" 5) Remove pet ");
-        System.out.println(" 6) Exit program ");
+        System.out.println(" 6) Update pet ");
+        System.out.println(" 7) Exit program ");
         System.out.print("Your choice: ");
         return s.nextInt();
     }
