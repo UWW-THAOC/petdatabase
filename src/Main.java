@@ -10,6 +10,7 @@ public class Main {
     
     public static void main(String[] args) {
 
+        db.load();
         System.out.println("Pet Database Program.");
         loop:
         while (true) {
@@ -36,6 +37,7 @@ public class Main {
                     break loop;
             }
         }
+        db.save();
     }
     
     private static void updatePet() {
